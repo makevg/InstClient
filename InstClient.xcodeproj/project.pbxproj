@@ -9,12 +9,22 @@
 /* Begin PBXBuildFile section */
 		14611A5A1C9D9B93009586EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14611A591C9D9B93009586EC /* main.m */; };
 		14611A5D1C9D9B93009586EC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14611A5C1C9D9B93009586EC /* AppDelegate.m */; };
-		14611A601C9D9B93009586EC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14611A5F1C9D9B93009586EC /* ViewController.m */; };
 		14611A631C9D9B93009586EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14611A611C9D9B93009586EC /* Main.storyboard */; };
 		14611A651C9D9B93009586EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14611A641C9D9B93009586EC /* Assets.xcassets */; };
 		14611A681C9D9B93009586EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14611A661C9D9B93009586EC /* LaunchScreen.storyboard */; };
 		14611A731C9D9B93009586EC /* InstClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14611A721C9D9B93009586EC /* InstClientTests.m */; };
 		14611A7E1C9D9B93009586EC /* InstClientUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14611A7D1C9D9B93009586EC /* InstClientUITests.m */; };
+		14611A971C9DB379009586EC /* FreightSans.otf in Resources */ = {isa = PBXBuildFile; fileRef = 14611A961C9DB379009586EC /* FreightSans.otf */; };
+		14611A9A1C9DB3FC009586EC /* MEStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 14611A991C9DB3FC009586EC /* MEStyle.m */; };
+		14611A9E1C9DB571009586EC /* MEInstService.m in Sources */ = {isa = PBXBuildFile; fileRef = 14611A9D1C9DB571009586EC /* MEInstService.m */; };
+		14611AA61C9DDDBE009586EC /* MEUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 14611AA51C9DDDBE009586EC /* MEUser.m */; };
+		14611AAB1C9DE775009586EC /* MEBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14611AAA1C9DE775009586EC /* MEBaseTableViewCell.m */; };
+		14611AB01C9DE7EC009586EC /* MEBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14611AAF1C9DE7EC009586EC /* MEBaseView.m */; };
+		14611AB51C9DE848009586EC /* MEBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 14611AB41C9DE848009586EC /* MEBaseVC.m */; };
+		14611ABD1C9DE90E009586EC /* MESearchUsersVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 14611ABC1C9DE90E009586EC /* MESearchUsersVC.m */; };
+		14611AC11C9DE93A009586EC /* MESearchUsersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14611AC01C9DE93A009586EC /* MESearchUsersView.m */; };
+		14611AC51C9DE972009586EC /* MEUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14611AC41C9DE972009586EC /* MEUserCell.m */; };
+		14611AC91C9DEA9D009586EC /* UIImageView+AsyncLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 14611AC81C9DEA9D009586EC /* UIImageView+AsyncLoad.m */; };
 		904665D2CC6B766DC8A8AEA1 /* libPods-InstClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B4E45B17189E5759AED52DD /* libPods-InstClient.a */; };
 /* End PBXBuildFile section */
 
@@ -41,8 +51,6 @@
 		14611A591C9D9B93009586EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		14611A5B1C9D9B93009586EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		14611A5C1C9D9B93009586EC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		14611A5E1C9D9B93009586EC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		14611A5F1C9D9B93009586EC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		14611A621C9D9B93009586EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		14611A641C9D9B93009586EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14611A671C9D9B93009586EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,6 +61,27 @@
 		14611A791C9D9B93009586EC /* InstClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InstClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14611A7D1C9D9B93009586EC /* InstClientUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = InstClientUITests.m; sourceTree = "<group>"; };
 		14611A7F1C9D9B93009586EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		14611A961C9DB379009586EC /* FreightSans.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FreightSans.otf; sourceTree = "<group>"; };
+		14611A981C9DB3FC009586EC /* MEStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEStyle.h; sourceTree = "<group>"; };
+		14611A991C9DB3FC009586EC /* MEStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEStyle.m; sourceTree = "<group>"; };
+		14611A9C1C9DB571009586EC /* MEInstService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEInstService.h; sourceTree = "<group>"; };
+		14611A9D1C9DB571009586EC /* MEInstService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEInstService.m; sourceTree = "<group>"; };
+		14611AA41C9DDDBE009586EC /* MEUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEUser.h; sourceTree = "<group>"; };
+		14611AA51C9DDDBE009586EC /* MEUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEUser.m; sourceTree = "<group>"; };
+		14611AA91C9DE775009586EC /* MEBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEBaseTableViewCell.h; sourceTree = "<group>"; };
+		14611AAA1C9DE775009586EC /* MEBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEBaseTableViewCell.m; sourceTree = "<group>"; };
+		14611AAE1C9DE7EC009586EC /* MEBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEBaseView.h; sourceTree = "<group>"; };
+		14611AAF1C9DE7EC009586EC /* MEBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEBaseView.m; sourceTree = "<group>"; };
+		14611AB31C9DE848009586EC /* MEBaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEBaseVC.h; sourceTree = "<group>"; };
+		14611AB41C9DE848009586EC /* MEBaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEBaseVC.m; sourceTree = "<group>"; };
+		14611ABB1C9DE90E009586EC /* MESearchUsersVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MESearchUsersVC.h; sourceTree = "<group>"; };
+		14611ABC1C9DE90E009586EC /* MESearchUsersVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MESearchUsersVC.m; sourceTree = "<group>"; };
+		14611ABF1C9DE93A009586EC /* MESearchUsersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MESearchUsersView.h; sourceTree = "<group>"; };
+		14611AC01C9DE93A009586EC /* MESearchUsersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MESearchUsersView.m; sourceTree = "<group>"; };
+		14611AC31C9DE972009586EC /* MEUserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEUserCell.h; sourceTree = "<group>"; };
+		14611AC41C9DE972009586EC /* MEUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEUserCell.m; sourceTree = "<group>"; };
+		14611AC71C9DEA9D009586EC /* UIImageView+AsyncLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AsyncLoad.h"; sourceTree = "<group>"; };
+		14611AC81C9DEA9D009586EC /* UIImageView+AsyncLoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AsyncLoad.m"; sourceTree = "<group>"; };
 		5B4E45B17189E5759AED52DD /* libPods-InstClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89BB178572176C24F2DCFE97 /* Pods-InstClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstClient/Pods-InstClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,11 +137,12 @@
 		14611A571C9D9B93009586EC /* InstClient */ = {
 			isa = PBXGroup;
 			children = (
+				14611AC61C9DEA6B009586EC /* Categories */,
 				14611A8B1C9D9C31009586EC /* Common */,
 				14611A8C1C9D9C45009586EC /* CommonUi */,
+				14611AB61C9DE883009586EC /* Modules */,
 				14611A8D1C9D9C5A009586EC /* Resources */,
-				14611A5E1C9D9B93009586EC /* ViewController.h */,
-				14611A5F1C9D9B93009586EC /* ViewController.m */,
+				14611A911C9DAEE6009586EC /* ServiceLayer */,
 			);
 			path = InstClient;
 			sourceTree = "<group>";
@@ -143,7 +173,6 @@
 				14611A691C9D9B93009586EC /* Info.plist */,
 				14611A661C9D9B93009586EC /* LaunchScreen.storyboard */,
 				14611A591C9D9B93009586EC /* main.m */,
-				14611A611C9D9B93009586EC /* Main.storyboard */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -151,6 +180,9 @@
 		14611A8C1C9D9C45009586EC /* CommonUi */ = {
 			isa = PBXGroup;
 			children = (
+				14611AA71C9DE746009586EC /* Cells */,
+				14611AB11C9DE822009586EC /* Controllers */,
+				14611AAC1C9DE7C7009586EC /* Views */,
 			);
 			path = CommonUi;
 			sourceTree = "<group>";
@@ -159,8 +191,176 @@
 			isa = PBXGroup;
 			children = (
 				14611A641C9D9B93009586EC /* Assets.xcassets */,
+				14611A961C9DB379009586EC /* FreightSans.otf */,
+				14611A981C9DB3FC009586EC /* MEStyle.h */,
+				14611A991C9DB3FC009586EC /* MEStyle.m */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		14611A911C9DAEE6009586EC /* ServiceLayer */ = {
+			isa = PBXGroup;
+			children = (
+				14611A921C9DAF05009586EC /* Models */,
+				14611A931C9DAF13009586EC /* Services */,
+			);
+			path = ServiceLayer;
+			sourceTree = "<group>";
+		};
+		14611A921C9DAF05009586EC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				14611AA31C9DDDAA009586EC /* User */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		14611A931C9DAF13009586EC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				14611A9B1C9DB55D009586EC /* InstService */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		14611A9B1C9DB55D009586EC /* InstService */ = {
+			isa = PBXGroup;
+			children = (
+				14611A9C1C9DB571009586EC /* MEInstService.h */,
+				14611A9D1C9DB571009586EC /* MEInstService.m */,
+			);
+			path = InstService;
+			sourceTree = "<group>";
+		};
+		14611AA31C9DDDAA009586EC /* User */ = {
+			isa = PBXGroup;
+			children = (
+				14611AA41C9DDDBE009586EC /* MEUser.h */,
+				14611AA51C9DDDBE009586EC /* MEUser.m */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		14611AA71C9DE746009586EC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				14611AA81C9DE755009586EC /* BaseTableViewCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		14611AA81C9DE755009586EC /* BaseTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				14611AA91C9DE775009586EC /* MEBaseTableViewCell.h */,
+				14611AAA1C9DE775009586EC /* MEBaseTableViewCell.m */,
+			);
+			path = BaseTableViewCell;
+			sourceTree = "<group>";
+		};
+		14611AAC1C9DE7C7009586EC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				14611AAD1C9DE7D7009586EC /* BaseView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		14611AAD1C9DE7D7009586EC /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+				14611AAE1C9DE7EC009586EC /* MEBaseView.h */,
+				14611AAF1C9DE7EC009586EC /* MEBaseView.m */,
+			);
+			path = BaseView;
+			sourceTree = "<group>";
+		};
+		14611AB11C9DE822009586EC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				14611AB21C9DE835009586EC /* BaseVC */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		14611AB21C9DE835009586EC /* BaseVC */ = {
+			isa = PBXGroup;
+			children = (
+				14611AB31C9DE848009586EC /* MEBaseVC.h */,
+				14611AB41C9DE848009586EC /* MEBaseVC.m */,
+			);
+			path = BaseVC;
+			sourceTree = "<group>";
+		};
+		14611AB61C9DE883009586EC /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				14611A611C9D9B93009586EC /* Main.storyboard */,
+				14611AB71C9DE89A009586EC /* Users */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		14611AB71C9DE89A009586EC /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				14611AB81C9DE8B5009586EC /* SearchUsersScreen */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		14611AB81C9DE8B5009586EC /* SearchUsersScreen */ = {
+			isa = PBXGroup;
+			children = (
+				14611ABA1C9DE8DC009586EC /* Controller */,
+				14611AB91C9DE8CD009586EC /* View */,
+			);
+			path = SearchUsersScreen;
+			sourceTree = "<group>";
+		};
+		14611AB91C9DE8CD009586EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				14611AC21C9DE952009586EC /* UserCell */,
+				14611ABE1C9DE921009586EC /* SearchUsersView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		14611ABA1C9DE8DC009586EC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				14611ABB1C9DE90E009586EC /* MESearchUsersVC.h */,
+				14611ABC1C9DE90E009586EC /* MESearchUsersVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		14611ABE1C9DE921009586EC /* SearchUsersView */ = {
+			isa = PBXGroup;
+			children = (
+				14611ABF1C9DE93A009586EC /* MESearchUsersView.h */,
+				14611AC01C9DE93A009586EC /* MESearchUsersView.m */,
+			);
+			path = SearchUsersView;
+			sourceTree = "<group>";
+		};
+		14611AC21C9DE952009586EC /* UserCell */ = {
+			isa = PBXGroup;
+			children = (
+				14611AC31C9DE972009586EC /* MEUserCell.h */,
+				14611AC41C9DE972009586EC /* MEUserCell.m */,
+			);
+			path = UserCell;
+			sourceTree = "<group>";
+		};
+		14611AC61C9DEA6B009586EC /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				14611AC71C9DEA9D009586EC /* UIImageView+AsyncLoad.h */,
+				14611AC81C9DEA9D009586EC /* UIImageView+AsyncLoad.m */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		74626DD3CA836A5637A4CA31 /* Frameworks */ = {
@@ -285,6 +485,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14611A971C9DB379009586EC /* FreightSans.otf in Resources */,
 				14611A681C9D9B93009586EC /* LaunchScreen.storyboard in Resources */,
 				14611A651C9D9B93009586EC /* Assets.xcassets in Resources */,
 				14611A631C9D9B93009586EC /* Main.storyboard in Resources */,
@@ -345,9 +546,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14611A601C9D9B93009586EC /* ViewController.m in Sources */,
+				14611AC51C9DE972009586EC /* MEUserCell.m in Sources */,
+				14611AC11C9DE93A009586EC /* MESearchUsersView.m in Sources */,
+				14611A9E1C9DB571009586EC /* MEInstService.m in Sources */,
+				14611AAB1C9DE775009586EC /* MEBaseTableViewCell.m in Sources */,
 				14611A5D1C9D9B93009586EC /* AppDelegate.m in Sources */,
+				14611AB51C9DE848009586EC /* MEBaseVC.m in Sources */,
+				14611AC91C9DEA9D009586EC /* UIImageView+AsyncLoad.m in Sources */,
 				14611A5A1C9D9B93009586EC /* main.m in Sources */,
+				14611AA61C9DDDBE009586EC /* MEUser.m in Sources */,
+				14611ABD1C9DE90E009586EC /* MESearchUsersVC.m in Sources */,
+				14611A9A1C9DB3FC009586EC /* MEStyle.m in Sources */,
+				14611AB01C9DE7EC009586EC /* MEBaseView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

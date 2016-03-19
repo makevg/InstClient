@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  MEBaseView.h
 //  InstClient
 //
 //  Created by Maximychev Evgeny on 19.03.16.
@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MEStyle.h"
 
-@interface ViewController : UIViewController
+@interface MEBaseView : UIView
 
+- (void)setup;
+- (void)setModel:(id)model;
 
 @end
-
