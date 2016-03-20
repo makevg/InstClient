@@ -25,6 +25,11 @@
 		14611AC11C9DE93A009586EC /* MESearchUsersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14611AC01C9DE93A009586EC /* MESearchUsersView.m */; };
 		14611AC51C9DE972009586EC /* MEUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14611AC41C9DE972009586EC /* MEUserCell.m */; };
 		14611AC91C9DEA9D009586EC /* UIImageView+AsyncLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 14611AC81C9DEA9D009586EC /* UIImageView+AsyncLoad.m */; };
+		14EAB0451C9F3EE2000779AF /* MEMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EAB0441C9F3EE2000779AF /* MEMedia.m */; };
+		14EAB04B1C9F4C0C000779AF /* MEUserMediaVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EAB04A1C9F4C0C000779AF /* MEUserMediaVC.m */; };
+		14EAB04F1C9F4C3B000779AF /* MEUserMediaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EAB04E1C9F4C3B000779AF /* MEUserMediaView.m */; };
+		14EAB0541C9F4CDE000779AF /* MEBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EAB0531C9F4CDE000779AF /* MEBaseCollectionViewCell.m */; };
+		14EAB0571C9F4D39000779AF /* MEUserMediaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EAB0561C9F4D39000779AF /* MEUserMediaCell.m */; };
 		904665D2CC6B766DC8A8AEA1 /* libPods-InstClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B4E45B17189E5759AED52DD /* libPods-InstClient.a */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +87,16 @@
 		14611AC41C9DE972009586EC /* MEUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEUserCell.m; sourceTree = "<group>"; };
 		14611AC71C9DEA9D009586EC /* UIImageView+AsyncLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AsyncLoad.h"; sourceTree = "<group>"; };
 		14611AC81C9DEA9D009586EC /* UIImageView+AsyncLoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AsyncLoad.m"; sourceTree = "<group>"; };
+		14EAB0431C9F3EE2000779AF /* MEMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEMedia.h; sourceTree = "<group>"; };
+		14EAB0441C9F3EE2000779AF /* MEMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEMedia.m; sourceTree = "<group>"; };
+		14EAB0491C9F4C0C000779AF /* MEUserMediaVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEUserMediaVC.h; sourceTree = "<group>"; };
+		14EAB04A1C9F4C0C000779AF /* MEUserMediaVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEUserMediaVC.m; sourceTree = "<group>"; };
+		14EAB04D1C9F4C3B000779AF /* MEUserMediaView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEUserMediaView.h; sourceTree = "<group>"; };
+		14EAB04E1C9F4C3B000779AF /* MEUserMediaView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEUserMediaView.m; sourceTree = "<group>"; };
+		14EAB0521C9F4CDE000779AF /* MEBaseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEBaseCollectionViewCell.h; sourceTree = "<group>"; };
+		14EAB0531C9F4CDE000779AF /* MEBaseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEBaseCollectionViewCell.m; sourceTree = "<group>"; };
+		14EAB0551C9F4D39000779AF /* MEUserMediaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEUserMediaCell.h; sourceTree = "<group>"; };
+		14EAB0561C9F4D39000779AF /* MEUserMediaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEUserMediaCell.m; sourceTree = "<group>"; };
 		5B4E45B17189E5759AED52DD /* libPods-InstClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		89BB178572176C24F2DCFE97 /* Pods-InstClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstClient/Pods-InstClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -210,6 +225,7 @@
 		14611A921C9DAF05009586EC /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				14EAB0421C9F3EB7000779AF /* Media */,
 				14611AA31C9DDDAA009586EC /* User */,
 			);
 			path = Models;
@@ -244,6 +260,7 @@
 		14611AA71C9DE746009586EC /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				14EAB0511C9F4CB5000779AF /* BaseCollectionViewCell */,
 				14611AA81C9DE755009586EC /* BaseTableViewCell */,
 			);
 			path = Cells;
@@ -305,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				14611AB81C9DE8B5009586EC /* SearchUsersScreen */,
+				14EAB0461C9F4B59000779AF /* UserMediaScreen */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -361,6 +379,69 @@
 				14611AC81C9DEA9D009586EC /* UIImageView+AsyncLoad.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		14EAB0421C9F3EB7000779AF /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				14EAB0431C9F3EE2000779AF /* MEMedia.h */,
+				14EAB0441C9F3EE2000779AF /* MEMedia.m */,
+			);
+			path = Media;
+			sourceTree = "<group>";
+		};
+		14EAB0461C9F4B59000779AF /* UserMediaScreen */ = {
+			isa = PBXGroup;
+			children = (
+				14EAB0481C9F4BC3000779AF /* Controller */,
+				14EAB0471C9F4BB4000779AF /* View */,
+			);
+			path = UserMediaScreen;
+			sourceTree = "<group>";
+		};
+		14EAB0471C9F4BB4000779AF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				14EAB0501C9F4C86000779AF /* UserMediaCell */,
+				14EAB04C1C9F4C1A000779AF /* UserMediaView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		14EAB0481C9F4BC3000779AF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				14EAB0491C9F4C0C000779AF /* MEUserMediaVC.h */,
+				14EAB04A1C9F4C0C000779AF /* MEUserMediaVC.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		14EAB04C1C9F4C1A000779AF /* UserMediaView */ = {
+			isa = PBXGroup;
+			children = (
+				14EAB04D1C9F4C3B000779AF /* MEUserMediaView.h */,
+				14EAB04E1C9F4C3B000779AF /* MEUserMediaView.m */,
+			);
+			path = UserMediaView;
+			sourceTree = "<group>";
+		};
+		14EAB0501C9F4C86000779AF /* UserMediaCell */ = {
+			isa = PBXGroup;
+			children = (
+				14EAB0551C9F4D39000779AF /* MEUserMediaCell.h */,
+				14EAB0561C9F4D39000779AF /* MEUserMediaCell.m */,
+			);
+			path = UserMediaCell;
+			sourceTree = "<group>";
+		};
+		14EAB0511C9F4CB5000779AF /* BaseCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				14EAB0521C9F4CDE000779AF /* MEBaseCollectionViewCell.h */,
+				14EAB0531C9F4CDE000779AF /* MEBaseCollectionViewCell.m */,
+			);
+			path = BaseCollectionViewCell;
 			sourceTree = "<group>";
 		};
 		74626DD3CA836A5637A4CA31 /* Frameworks */ = {
@@ -552,11 +633,16 @@
 				14611AAB1C9DE775009586EC /* MEBaseTableViewCell.m in Sources */,
 				14611A5D1C9D9B93009586EC /* AppDelegate.m in Sources */,
 				14611AB51C9DE848009586EC /* MEBaseVC.m in Sources */,
+				14EAB04F1C9F4C3B000779AF /* MEUserMediaView.m in Sources */,
 				14611AC91C9DEA9D009586EC /* UIImageView+AsyncLoad.m in Sources */,
 				14611A5A1C9D9B93009586EC /* main.m in Sources */,
+				14EAB0541C9F4CDE000779AF /* MEBaseCollectionViewCell.m in Sources */,
 				14611AA61C9DDDBE009586EC /* MEUser.m in Sources */,
+				14EAB0571C9F4D39000779AF /* MEUserMediaCell.m in Sources */,
 				14611ABD1C9DE90E009586EC /* MESearchUsersVC.m in Sources */,
+				14EAB04B1C9F4C0C000779AF /* MEUserMediaVC.m in Sources */,
 				14611A9A1C9DB3FC009586EC /* MEStyle.m in Sources */,
+				14EAB0451C9F3EE2000779AF /* MEMedia.m in Sources */,
 				14611AB01C9DE7EC009586EC /* MEBaseView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -91,11 +91,78 @@
                     <navigationItem key="navigationItem" title="Instagram" id="WVR-Lq-6K4"/>
                     <connections>
                         <outlet property="contentView" destination="8bC-Xf-vdC" id="dxP-ZU-sUJ"/>
+                        <segue destination="ZDY-0e-DhD" kind="show" identifier="showUserMedia" id="Fz5-Xo-5nV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="298" y="209"/>
+        </scene>
+        <!--User MediaVC-->
+        <scene sceneID="i1d-IM-D9Q">
+            <objects>
+                <viewController id="ZDY-0e-DhD" customClass="MEUserMediaVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fz4-jy-Apx"/>
+                        <viewControllerLayoutGuide type="bottom" id="H8V-3C-VyH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wwk-AI-Ral" customClass="MEUserMediaView">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ceY-4w-x6k">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="1" id="Xii-we-FGC">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MEUserMediaCell" id="TzV-Vm-Dxd" customClass="MEUserMediaCell">
+                                        <rect key="frame" x="0.0" y="64" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j5j-DP-iMO">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="j5j-DP-iMO" firstAttribute="top" secondItem="TzV-Vm-Dxd" secondAttribute="top" id="FaU-hF-6A9"/>
+                                            <constraint firstItem="j5j-DP-iMO" firstAttribute="leading" secondItem="TzV-Vm-Dxd" secondAttribute="leading" id="dzk-p1-Y4E"/>
+                                            <constraint firstAttribute="trailing" secondItem="j5j-DP-iMO" secondAttribute="trailing" id="gS9-1v-gSa"/>
+                                            <constraint firstAttribute="bottom" secondItem="j5j-DP-iMO" secondAttribute="bottom" id="zkJ-hh-yXl"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="mediaImageView" destination="j5j-DP-iMO" id="Hgs-Zx-Yg4"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ceY-4w-x6k" firstAttribute="leading" secondItem="wwk-AI-Ral" secondAttribute="leading" id="hUt-tM-nWU"/>
+                            <constraint firstAttribute="trailing" secondItem="ceY-4w-x6k" secondAttribute="trailing" id="kxW-iS-ISQ"/>
+                            <constraint firstItem="ceY-4w-x6k" firstAttribute="top" secondItem="fz4-jy-Apx" secondAttribute="bottom" id="oed-MC-9H0"/>
+                            <constraint firstItem="H8V-3C-VyH" firstAttribute="top" secondItem="ceY-4w-x6k" secondAttribute="bottom" id="yB2-HG-yFs"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="collectionView" destination="ceY-4w-x6k" id="6nK-Nq-1Ut"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="contentView" destination="wwk-AI-Ral" id="cG0-mr-lgl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KoM-0l-zOF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="959" y="209"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZTr-uh-11G">

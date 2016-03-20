@@ -16,11 +16,16 @@
 
 + (instancetype)sharedInstance;
 
-- (void)auth;
 - (NSURLRequest *)getAutorizationRequestForInstagram;
+
 - (NSString *)getTokenFromURL:(NSString *)urlString;
+
 - (void)getUsersBySearchString:(NSString *)searchStr
                      onSuccess:(void(^)(NSArray *users))success
                      onFailure:(void (^)(NSError *error))failure;
+
+- (void)getMediaByUserId:(NSString *)userId
+               onSuccess:(void(^)(NSArray *mediaArray))success
+               onFailure:(void (^)(NSError *error))failure;
 
 @end
