@@ -11,6 +11,9 @@
 #import "MEUserCell.h"
 #import "MEInstService.h"
 #import "MEUser.h"
+#import "MEUserMediaVC.h"
+
+NSString *const cUserMediaSegueIdentifier = @"showUserMedia";
 
 @interface MESearchUsersVC () <UITableViewDataSource, UITableViewDelegate, UIWebViewDelegate, UISearchBarDelegate>
 @property (strong, nonatomic) IBOutlet MESearchUsersView *contentView;
@@ -18,7 +21,17 @@
 @property (nonatomic) NSArray<MEUser *> *usersData;
 @end
 
-@implementation MESearchUsersVC
+@implementation MESearchUsersVC {
+    MEUser *selectedUser;
+    MEUserMediaVC *destinationVC;
+}
+
+#pragma mark - Lifecycle
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self prepareNavItem];
+}
 
 #pragma mark - Configure
 
@@ -33,6 +46,13 @@
     self.contentView.tableView.dataSource = self;
     self.contentView.tableView.delegate = self;
     self.contentView.searchBar.delegate = self;
+}
+
+- (void)prepareNavItem {
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@""
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:nil
+                                                                            action:nil];
 }
 
 - (void)prepareWebView {
@@ -51,7 +71,7 @@
 
 - (void)searchUsersBySerachString:(NSString *)searchString {
     __weak typeof(self)weakSealf = self;
-    [Inst_service getUsersBySearchString:@""
+    [Inst_service getUsersBySearchString:searchString
                                onSuccess:^(NSArray *users) {
                                    weakSealf.usersData = users;
                                    [weakSealf reloadTableViewData];
@@ -104,6 +124,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    selectedUser = self.usersData[indexPath.row];
+    [self performSegueWithIdentifier:cUserMediaSegueIdentifier sender:self];
 }
 
 #pragma mark - UISearchBarDelegate
@@ -115,6 +137,15 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     NSString *searchString = searchBar.text;
     [self searchUsersBySerachString:searchString];
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:cUserMediaSegueIdentifier]) {
+        destinationVC = segue.destinationViewController;
+        destinationVC.user = selectedUser;
+    }
 }
 
 @end

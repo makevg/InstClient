@@ -10,7 +10,7 @@
 
 @interface MEUser : NSObject
 
-@property (nonatomic) NSNumber *userId;
+@property (nonatomic) NSString *userId;
 @property (nonatomic) NSString *userName;
 @property (nonatomic) NSString *fullName;
 @property (nonatomic) NSString *bio;

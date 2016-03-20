@@ -8,18 +8,27 @@
 
 #import "MEInstService.h"
 #import "MEUser.h"
+#import "MEMedia.h"
 #import <AFNetworking/AFHTTPSessionManager.h>
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 
 NSString *const cAuthUrl = @"https://api.instagram.com/oauth/authorize/";
 NSString *const cSearchUrl = @"https://api.instagram.com/v1/users/search";
 
+NSString *const cClientID = @"f43ec3d18a3a47e597f78e909c77c1e3";
+NSString *const credirectUri = @"http://makevg.livejournal.com/";
+NSString *const cresponseType = @"token";
+NSString *const cScopes = @"basic+public_content";
+
+@interface MEInstService ()
+@property (nonatomic) AFHTTPSessionManager *requestOperationManager;
+@end
+
 @implementation MEInstService {
     NSString *cliendId;
     NSString *redirectUri;
     NSString *responseType;
     NSString *scope;
-    AFHTTPSessionManager *requestOperationManager;
 }
 
 #pragma mark - Singleton
@@ -34,57 +43,52 @@ NSString *const cSearchUrl = @"https://api.instagram.com/v1/users/search";
     return sharedInstance;
 }
 
+#pragma mark - Lazy init
+
+- (AFHTTPSessionManager *)requestOperationManager {
+    if (!_requestOperationManager) {
+        _requestOperationManager = [self prepareOperationManager];
+    }
+    return _requestOperationManager;
+}
+
 #pragma mark - Private
 
 - (void)lazyLoad {
-    cliendId = @"c6eb493b3a834158bb1e24b26ba16b4f";
-    redirectUri = @"http://makevg.livejournal.com/";
-    responseType = @"token";
-    scope = @"basic+public_content";
+    cliendId = cClientID;
+    redirectUri = credirectUri;
+    responseType = cresponseType;
+    scope = cScopes;
     [self prepareOperationManager];
 }
 
-- (void)prepareOperationManager {
-    requestOperationManager = [AFHTTPSessionManager new];
+- (AFHTTPSessionManager *)prepareOperationManager {
+    AFHTTPSessionManager *requestOperationManager = [AFHTTPSessionManager new];
     requestOperationManager.responseSerializer.acceptableContentTypes = [requestOperationManager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+    return requestOperationManager;
 }
 
 - (void)getInformationWithParams:(NSDictionary *)params
                           method:(NSString *)method
                        onSuccess:(void(^)(NSDictionary *responseObject))success
                        onFailure:(void (^)(NSError *error))failure {
-    [requestOperationManager GET:method
-                      parameters:params
-                        progress:nil
-                         success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
+    [self.requestOperationManager GET:method
+                           parameters:params
+                             progress:nil
+                              success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
                                   if (success) {
                                       success(responseObject);
                                   }
                               }
-                         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                             NSLog(@"Error: %@", error);
-                             if (failure) {
-                                 failure(error);
-                             }
-                         }];
+                              failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                                  NSLog(@"Error: %@", error);
+                                  if (failure) {
+                                      failure(error);
+                                  }
+                              }];
 }
 
 #pragma mark - Public
-
-- (void)auth {
-    NSDictionary *params = @{@"client_id" : cliendId,
-                             @"redirect_uri" : redirectUri,
-                             @"response_type" : responseType,
-                             @"scope" : scope};
-    [self getInformationWithParams:params
-                            method:cAuthUrl
-                         onSuccess:^(NSDictionary *responseObject) {
-                             NSLog(@"%@", responseObject.description);
-                         }
-                         onFailure:^(NSError *error) {
-                             NSLog(@"%@", error.description);
-                         }];
-}
 
 - (NSURLRequest *)getAutorizationRequestForInstagram {
     NSString *urlString = [NSString stringWithFormat:@"%@?client_id=%@&redirect_uri=%@&response_type=%@&scope=%@", cAuthUrl, cliendId, redirectUri, responseType, scope];
@@ -107,12 +111,22 @@ NSString *const cSearchUrl = @"https://api.instagram.com/v1/users/search";
 - (void)getUsersBySearchString:(NSString *)searchStr
                      onSuccess:(void(^)(NSArray *users))success
                      onFailure:(void (^)(NSError *error))failure {
-    NSDictionary *params = @{@"q" : @"maximychev",
+    
+    __block NSMutableArray<MEUser *> *usersArray = [NSMutableArray<MEUser *> new];
+    
+    if ([searchStr length] < 1) {
+        if (success) {
+            success(usersArray);
+            return;
+        }
+    }
+    
+    NSDictionary *params = @{@"q" : searchStr,
                              @"access_token" : self.accessToken};
     [self getInformationWithParams:params
                             method:cSearchUrl
                          onSuccess:^(NSDictionary *responseObject) {
-                             NSArray<MEUser *> *usersArray = [self usersFromResponseArray:responseObject[@"data"]];
+                             usersArray = [[self usersFromResponseArray:responseObject[@"data"]] mutableCopy];
                              if (success) {
                                  success(usersArray);
                              }
@@ -138,6 +152,41 @@ NSString *const cSearchUrl = @"https://api.instagram.com/v1/users/search";
         [users addObject:user];
     }
     return users;
+}
+
+- (void)getMediaByUserId:(NSString *)userId
+               onSuccess:(void(^)(NSArray *mediaArray))success
+               onFailure:(void (^)(NSError *error))failure {
+    NSString *mediaUrl = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/%@/media/recent/", userId];
+    [self getInformationWithParams:@{@"access_token" : self.accessToken}
+                            method:mediaUrl
+                         onSuccess:^(NSDictionary *responseObject) {
+                             NSArray<MEMedia *> *mediaArray =
+                             [self mediaFromResponseArray:responseObject[@"data"]];
+                             
+                             if (success) {
+                                 success(mediaArray);
+                             }
+                         }
+                         onFailure:^(NSError *error) {
+                             if (failure) {
+                                 failure(error);
+                             }
+                         }];
+}
+
+- (NSArray<MEMedia *> *)mediaFromResponseArray:(NSArray *)response {
+    NSMutableArray<MEMedia *> *mediaArray = [NSMutableArray<MEMedia *> new];
+    for (NSDictionary *mediaDict in response) {
+        MEMedia *media = [MEMedia new];
+        media.mediaId = mediaDict[@"id"];
+        NSDictionary *imagesDict = mediaDict[@"images"];
+        media.lowResolution = imagesDict[@"low_resolution"][@"url"];
+        media.standardResolution = imagesDict[@"standard_resolution"][@"url"];
+        
+        [mediaArray addObject:media];
+    }
+    return mediaArray;
 }
 
 @end
