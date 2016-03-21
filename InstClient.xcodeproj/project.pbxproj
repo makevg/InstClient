@@ -216,19 +216,9 @@
 		14611A911C9DAEE6009586EC /* ServiceLayer */ = {
 			isa = PBXGroup;
 			children = (
-				14611A921C9DAF05009586EC /* Models */,
 				14611A931C9DAF13009586EC /* Services */,
 			);
 			path = ServiceLayer;
-			sourceTree = "<group>";
-		};
-		14611A921C9DAF05009586EC /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				14EAB0421C9F3EB7000779AF /* Media */,
-				14611AA31C9DDDAA009586EC /* User */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		14611A931C9DAF13009586EC /* Services */ = {
@@ -246,15 +236,6 @@
 				14611A9D1C9DB571009586EC /* MEInstService.m */,
 			);
 			path = InstService;
-			sourceTree = "<group>";
-		};
-		14611AA31C9DDDAA009586EC /* User */ = {
-			isa = PBXGroup;
-			children = (
-				14611AA41C9DDDBE009586EC /* MEUser.h */,
-				14611AA51C9DDDBE009586EC /* MEUser.m */,
-			);
-			path = User;
 			sourceTree = "<group>";
 		};
 		14611AA71C9DE746009586EC /* Cells */ = {
@@ -331,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				14611ABA1C9DE8DC009586EC /* Controller */,
+				816806E91CA04375008B0E86 /* Model */,
 				14611AB91C9DE8CD009586EC /* View */,
 			);
 			path = SearchUsersScreen;
@@ -381,19 +363,11 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
-		14EAB0421C9F3EB7000779AF /* Media */ = {
-			isa = PBXGroup;
-			children = (
-				14EAB0431C9F3EE2000779AF /* MEMedia.h */,
-				14EAB0441C9F3EE2000779AF /* MEMedia.m */,
-			);
-			path = Media;
-			sourceTree = "<group>";
-		};
 		14EAB0461C9F4B59000779AF /* UserMediaScreen */ = {
 			isa = PBXGroup;
 			children = (
 				14EAB0481C9F4BC3000779AF /* Controller */,
+				816806E81CA0431C008B0E86 /* Model */,
 				14EAB0471C9F4BB4000779AF /* View */,
 			);
 			path = UserMediaScreen;
@@ -450,6 +424,24 @@
 				5B4E45B17189E5759AED52DD /* libPods-InstClient.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		816806E81CA0431C008B0E86 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				14EAB0431C9F3EE2000779AF /* MEMedia.h */,
+				14EAB0441C9F3EE2000779AF /* MEMedia.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		816806E91CA04375008B0E86 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				14611AA41C9DDDBE009586EC /* MEUser.h */,
+				14611AA51C9DDDBE009586EC /* MEUser.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		FD8BD1534A82A17C5C539512 /* Pods */ = {
