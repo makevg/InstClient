@@ -8,8 +8,11 @@
 
 #import "MEBaseView.h"
 
+@class MEUserHeader;
+
 @interface MEUserMediaView : MEBaseView
 
+@property (weak, nonatomic) IBOutlet MEUserHeader *userHeader;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 - (void)startAnimating;

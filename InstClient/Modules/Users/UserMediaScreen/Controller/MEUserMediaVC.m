@@ -8,6 +8,7 @@
 
 #import "MEUserMediaVC.h"
 #import "MEUserMediaView.h"
+#import "MEUserHeader.h"
 #import "MEUserMediaCell.h"
 #import "MEInstService.h"
 #import "MEUser.h"
@@ -47,6 +48,7 @@
 - (void)configureController {
     screenWidth = CGRectGetWidth([[UIScreen mainScreen] bounds]);
     mediaFocusController = [URBMediaFocusViewController new];
+    [self.contentView.userHeader setModel:self.user];
     [self configureRefreshControl];
     [self setDataSourceAndDelegate];
     [self getNextMediaDataByMinMediaId:nil];
@@ -77,13 +79,13 @@
 - (void)getNextMediaDataByMinMediaId:(NSString *)mediaId {
     __weak typeof(self)weakSelf = self;
     [Inst_service getMediaByUserId:self.user.userId
-                        minMediaId:mediaId
+                        maxMediaId:mediaId
                          onSuccess:^(NSArray *mediaArray) {
                              [weakSelf.mediaData addObjectsFromArray:mediaArray];
                              [weakSelf reloadCollectionView];
                              [weakSelf.contentView stopAnimating];
                              [weakSelf.refreshControl endRefreshing];
-                             pageLoading = NO;
+                             pageLoading = !([mediaArray count] > 0);
                          }
                          onFailure:^(NSError *error) {
                              [weakSelf.contentView stopAnimating];
@@ -119,9 +121,7 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSInteger row = indexPath.row;
-    if (row == [self.mediaData count] - 1 && !pageLoading) {
-        pageLoading = YES;
+    if (indexPath.row == [self.mediaData count] - 1 && !pageLoading) {
         NSString *mediaId = [self.mediaData lastObject].mediaId;
         [self getNextMediaDataByMinMediaId:mediaId];
     }

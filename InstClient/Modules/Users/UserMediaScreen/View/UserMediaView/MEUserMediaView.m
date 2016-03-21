@@ -27,7 +27,9 @@
 }
 
 - (void)stopAnimating {
-    [self.activityIndicator stopAnimating];
+    if (self.activityIndicator.isAnimating) {
+        [self.activityIndicator stopAnimating];
+    }
 }
 
 @end

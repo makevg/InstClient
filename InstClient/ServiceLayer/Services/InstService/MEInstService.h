@@ -25,7 +25,7 @@
                      onFailure:(void (^)(NSError *error))failure;
 
 - (void)getMediaByUserId:(NSString *)userId
-              minMediaId:(NSString *)mediaId
+              maxMediaId:(NSString *)mediaId
                onSuccess:(void(^)(NSArray *mediaArray))success
                onFailure:(void (^)(NSError *error))failure;
 

@@ -25,6 +25,8 @@
 		14611AC11C9DE93A009586EC /* MESearchUsersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14611AC01C9DE93A009586EC /* MESearchUsersView.m */; };
 		14611AC51C9DE972009586EC /* MEUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14611AC41C9DE972009586EC /* MEUserCell.m */; };
 		14611AC91C9DEA9D009586EC /* UIImageView+AsyncLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 14611AC81C9DEA9D009586EC /* UIImageView+AsyncLoad.m */; };
+		14D60B431CA0812200C09D4D /* MEUserHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D60B421CA0812200C09D4D /* MEUserHeader.m */; };
+		14D60B451CA0812F00C09D4D /* MEUserHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14D60B441CA0812F00C09D4D /* MEUserHeader.xib */; };
 		14EAB0451C9F3EE2000779AF /* MEMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EAB0441C9F3EE2000779AF /* MEMedia.m */; };
 		14EAB04B1C9F4C0C000779AF /* MEUserMediaVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EAB04A1C9F4C0C000779AF /* MEUserMediaVC.m */; };
 		14EAB04F1C9F4C3B000779AF /* MEUserMediaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EAB04E1C9F4C3B000779AF /* MEUserMediaView.m */; };
@@ -87,6 +89,9 @@
 		14611AC41C9DE972009586EC /* MEUserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEUserCell.m; sourceTree = "<group>"; };
 		14611AC71C9DEA9D009586EC /* UIImageView+AsyncLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AsyncLoad.h"; sourceTree = "<group>"; };
 		14611AC81C9DEA9D009586EC /* UIImageView+AsyncLoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AsyncLoad.m"; sourceTree = "<group>"; };
+		14D60B411CA0812200C09D4D /* MEUserHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEUserHeader.h; sourceTree = "<group>"; };
+		14D60B421CA0812200C09D4D /* MEUserHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEUserHeader.m; sourceTree = "<group>"; };
+		14D60B441CA0812F00C09D4D /* MEUserHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MEUserHeader.xib; sourceTree = "<group>"; };
 		14EAB0431C9F3EE2000779AF /* MEMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEMedia.h; sourceTree = "<group>"; };
 		14EAB0441C9F3EE2000779AF /* MEMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEMedia.m; sourceTree = "<group>"; };
 		14EAB0491C9F4C0C000779AF /* MEUserMediaVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEUserMediaVC.h; sourceTree = "<group>"; };
@@ -363,6 +368,16 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		14D60B401CA080F900C09D4D /* UserHeader */ = {
+			isa = PBXGroup;
+			children = (
+				14D60B411CA0812200C09D4D /* MEUserHeader.h */,
+				14D60B421CA0812200C09D4D /* MEUserHeader.m */,
+				14D60B441CA0812F00C09D4D /* MEUserHeader.xib */,
+			);
+			path = UserHeader;
+			sourceTree = "<group>";
+		};
 		14EAB0461C9F4B59000779AF /* UserMediaScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,6 +391,7 @@
 		14EAB0471C9F4BB4000779AF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				14D60B401CA080F900C09D4D /* UserHeader */,
 				14EAB0501C9F4C86000779AF /* UserMediaCell */,
 				14EAB04C1C9F4C1A000779AF /* UserMediaView */,
 			);
@@ -465,7 +481,6 @@
 				14611A521C9D9B93009586EC /* Frameworks */,
 				14611A531C9D9B93009586EC /* Resources */,
 				4211A5A034C4C8E3E3E95FA9 /* Copy Pods Resources */,
-				E3A3DAAAAA0653145C6746FE /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -561,6 +576,7 @@
 			files = (
 				14611A971C9DB379009586EC /* FreightSans.otf in Resources */,
 				14611A681C9D9B93009586EC /* LaunchScreen.storyboard in Resources */,
+				14D60B451CA0812F00C09D4D /* MEUserHeader.xib in Resources */,
 				14611A651C9D9B93009586EC /* Assets.xcassets in Resources */,
 				14611A631C9D9B93009586EC /* Main.storyboard in Resources */,
 			);
@@ -613,21 +629,6 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		E3A3DAAAAA0653145C6746FE /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstClient/Pods-InstClient-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -644,6 +645,7 @@
 				14EAB04F1C9F4C3B000779AF /* MEUserMediaView.m in Sources */,
 				14611AC91C9DEA9D009586EC /* UIImageView+AsyncLoad.m in Sources */,
 				14611A5A1C9D9B93009586EC /* main.m in Sources */,
+				14D60B431CA0812200C09D4D /* MEUserHeader.m in Sources */,
 				14EAB0541C9F4CDE000779AF /* MEBaseCollectionViewCell.m in Sources */,
 				14611AA61C9DDDBE009586EC /* MEUser.m in Sources */,
 				14EAB0571C9F4D39000779AF /* MEUserMediaCell.m in Sources */,
