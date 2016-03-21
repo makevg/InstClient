@@ -84,7 +84,7 @@
 #pragma mark – UICollectionViewDelegateFlowLayout
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGFloat cellWidth = screenWidth / 3 - 0.5f;
+    CGFloat cellWidth = screenWidth / 3 - 1.f;
     CGFloat cellHeight = cellWidth;
     return CGSizeMake(cellWidth, cellHeight);
 }

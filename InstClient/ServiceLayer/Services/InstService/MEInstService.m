@@ -64,7 +64,8 @@ NSString *const cScopes = @"basic+public_content";
 
 - (AFHTTPSessionManager *)prepareOperationManager {
     AFHTTPSessionManager *requestOperationManager = [AFHTTPSessionManager new];
-    requestOperationManager.responseSerializer.acceptableContentTypes = [requestOperationManager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
+    requestOperationManager.responseSerializer.acceptableContentTypes
+    = [requestOperationManager.responseSerializer.acceptableContentTypes setByAddingObject:@"text/html"];
     return requestOperationManager;
 }
 
@@ -72,20 +73,27 @@ NSString *const cScopes = @"basic+public_content";
                           method:(NSString *)method
                        onSuccess:(void(^)(NSDictionary *responseObject))success
                        onFailure:(void (^)(NSError *error))failure {
+    __weak typeof(self)weakSelf = self;
+    [self showActivityIndicator:YES];
     [self.requestOperationManager GET:method
                            parameters:params
                              progress:nil
                               success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
                                   if (success) {
                                       success(responseObject);
+                                      [weakSelf showActivityIndicator:NO];
                                   }
                               }
                               failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                                  NSLog(@"Error: %@", error);
                                   if (failure) {
                                       failure(error);
+                                      [weakSelf showActivityIndicator:NO];
                                   }
                               }];
+}
+
+- (void)showActivityIndicator:(BOOL)show {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = show;
 }
 
 #pragma mark - Public

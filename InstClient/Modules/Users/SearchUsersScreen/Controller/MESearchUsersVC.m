@@ -106,8 +106,11 @@ NSString *const cUserMediaSegueIdentifier = @"showUserMedia";
     return cell;
 }
 
-- (nullable NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
-    return [NSString stringWithFormat:@"%lu users", (unsigned long)[self.usersData count]];
+- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if ([self.usersData count] > 0) {
+        return [NSString stringWithFormat:@"%lu users", (unsigned long)[self.usersData count]];
+    }
+    return @"Not users";
 }
 
 #pragma mark - UITableViewDelegate

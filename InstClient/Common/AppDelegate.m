@@ -17,6 +17,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [application setStatusBarStyle:UIStatusBarStyleLightContent];
     [self configureNavBar];
     
     return YES;
