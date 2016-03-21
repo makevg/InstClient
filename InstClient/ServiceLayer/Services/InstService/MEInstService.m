@@ -92,6 +92,36 @@ NSString *const cScopes = @"basic+public_content";
                               }];
 }
 
+- (NSArray<MEUser *> *)usersFromResponseArray:(NSArray *)response {
+    NSMutableArray<MEUser *> *users = [NSMutableArray<MEUser *> new];
+    for (NSDictionary *userDict in response) {
+        MEUser *user = [MEUser new];
+        user.userId = userDict[@"id"];
+        user.userName = userDict[@"username"];
+        user.fullName = userDict[@"full_name"];
+        user.bio = userDict[@"bio"];
+        user.profilePicture = userDict[@"profile_picture"];
+        user.website = userDict[@"website"];
+        
+        [users addObject:user];
+    }
+    return users;
+}
+
+- (NSArray<MEMedia *> *)mediaFromResponseArray:(NSArray *)response {
+    NSMutableArray<MEMedia *> *mediaArray = [NSMutableArray<MEMedia *> new];
+    for (NSDictionary *mediaDict in response) {
+        MEMedia *media = [MEMedia new];
+        media.mediaId = mediaDict[@"id"];
+        NSDictionary *imagesDict = mediaDict[@"images"];
+        media.lowResolution = imagesDict[@"low_resolution"][@"url"];
+        media.standardResolution = imagesDict[@"standard_resolution"][@"url"];
+        
+        [mediaArray addObject:media];
+    }
+    return mediaArray;
+}
+
 - (void)showActivityIndicator:(BOOL)show {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = show;
 }
@@ -146,22 +176,6 @@ NSString *const cScopes = @"basic+public_content";
                          }];
 }
 
-- (NSArray<MEUser *> *)usersFromResponseArray:(NSArray *)response {
-    NSMutableArray<MEUser *> *users = [NSMutableArray<MEUser *> new];
-    for (NSDictionary *userDict in response) {
-        MEUser *user = [MEUser new];
-        user.userId = userDict[@"id"];
-        user.userName = userDict[@"username"];
-        user.fullName = userDict[@"full_name"];
-        user.bio = userDict[@"bio"];
-        user.profilePicture = userDict[@"profile_picture"];
-        user.website = userDict[@"website"];
-        
-        [users addObject:user];
-    }
-    return users;
-}
-
 - (void)getMediaByUserId:(NSString *)userId
               maxMediaId:(NSString *)mediaId
                onSuccess:(void(^)(NSArray *mediaArray))success
@@ -189,18 +203,12 @@ NSString *const cScopes = @"basic+public_content";
                          }];
 }
 
-- (NSArray<MEMedia *> *)mediaFromResponseArray:(NSArray *)response {
-    NSMutableArray<MEMedia *> *mediaArray = [NSMutableArray<MEMedia *> new];
-    for (NSDictionary *mediaDict in response) {
-        MEMedia *media = [MEMedia new];
-        media.mediaId = mediaDict[@"id"];
-        NSDictionary *imagesDict = mediaDict[@"images"];
-        media.lowResolution = imagesDict[@"low_resolution"][@"url"];
-        media.standardResolution = imagesDict[@"standard_resolution"][@"url"];
-        
-        [mediaArray addObject:media];
+- (NSString *)errorDescriptionByError:(NSError *)error {
+    NSString *description = error.localizedDescription;
+    if ([description containsString:@"bad request (400)"]) {
+        return @"Photos loading failed: is a private account";
     }
-    return mediaArray;
+    return description;
 }
 
 @end

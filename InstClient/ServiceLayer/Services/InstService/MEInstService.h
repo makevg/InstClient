@@ -29,4 +29,6 @@
                onSuccess:(void(^)(NSArray *mediaArray))success
                onFailure:(void (^)(NSError *error))failure;
 
+- (NSString *)errorDescriptionByError:(NSError *)error;
+
 @end

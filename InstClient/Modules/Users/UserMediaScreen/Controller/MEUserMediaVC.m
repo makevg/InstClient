@@ -91,7 +91,7 @@
                              [weakSelf.contentView stopAnimating];
                              [weakSelf.refreshControl endRefreshing];
                              [weakSelf showAlertWithTitle:@"Error"
-                                                  message:error.localizedDescription];
+                                                  message:[Inst_service errorDescriptionByError:error]];
                          }];
 }
 
