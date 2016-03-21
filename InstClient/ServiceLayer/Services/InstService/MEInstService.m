@@ -163,10 +163,14 @@ NSString *const cScopes = @"basic+public_content";
 }
 
 - (void)getMediaByUserId:(NSString *)userId
+              minMediaId:(NSString *)mediaId
                onSuccess:(void(^)(NSArray *mediaArray))success
                onFailure:(void (^)(NSError *error))failure {
     NSString *mediaUrl = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/%@/media/recent/", userId];
-    [self getInformationWithParams:@{@"access_token" : self.accessToken}
+    NSString *minMediaId = mediaId ? mediaId : @"";
+    [self getInformationWithParams:@{@"access_token" : self.accessToken,
+                                     @"count" : @9,
+                                     @"min_id" : minMediaId}
                             method:mediaUrl
                          onSuccess:^(NSDictionary *responseObject) {
                              NSArray<MEMedia *> *mediaArray =

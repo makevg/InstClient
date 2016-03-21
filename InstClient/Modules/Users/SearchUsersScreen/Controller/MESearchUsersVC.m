@@ -110,7 +110,7 @@ NSString *const cUserMediaSegueIdentifier = @"showUserMedia";
     if ([self.usersData count] > 0) {
         return [NSString stringWithFormat:@"%lu users", (unsigned long)[self.usersData count]];
     }
-    return @"Not users";
+    return @"No users";
 }
 
 #pragma mark - UITableViewDelegate

@@ -16,12 +16,23 @@
 
 @interface MEUserMediaVC () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (strong, nonatomic) IBOutlet MEUserMediaView *contentView;
-@property (nonatomic) NSArray<MEMedia *> *mediaData;
+@property (nonatomic) UIRefreshControl *refreshControl;
+@property (nonatomic) NSMutableArray<MEMedia *> *mediaData;
 @end
 
 @implementation MEUserMediaVC {
+    BOOL pageLoading;
     CGFloat screenWidth;
     URBMediaFocusViewController *mediaFocusController;
+}
+
+#pragma mark - Lazy init
+
+- (NSMutableArray<MEMedia *> *)mediaData {
+    if (!_mediaData) {
+        _mediaData = [NSMutableArray<MEMedia *> new];
+    }
+    return _mediaData;
 }
 
 #pragma mark - Lifecycle
@@ -36,17 +47,9 @@
 - (void)configureController {
     screenWidth = CGRectGetWidth([[UIScreen mainScreen] bounds]);
     mediaFocusController = [URBMediaFocusViewController new];
+    [self configureRefreshControl];
     [self setDataSourceAndDelegate];
-    __weak typeof(self)weakSelf = self;
-    [Inst_service getMediaByUserId:self.user.userId
-                         onSuccess:^(NSArray *mediaArray) {
-                             weakSelf.mediaData = mediaArray;
-                             [weakSelf reloadCollectionView];
-                         }
-                         onFailure:^(NSError *error) {
-                             [weakSelf showAlertWithTitle:@"Error"
-                                                  message:error.localizedDescription];
-                         }];
+    [self getNextMediaDataByMinMediaId:nil];
 }
 
 #pragma mark - Private
@@ -54,6 +57,40 @@
 - (void)setDataSourceAndDelegate {
     self.contentView.collectionView.dataSource = self;
     self.contentView.collectionView.delegate = self;
+}
+
+- (void)configureRefreshControl {
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.tintColor = [UIColor grayColor];
+    [self.refreshControl addTarget:self
+                            action:@selector(refreshMediaData:)
+                  forControlEvents:UIControlEventValueChanged];
+    [self.contentView.collectionView addSubview:self.refreshControl];
+    self.contentView.collectionView.alwaysBounceVertical = YES;
+}
+
+- (void)refreshMediaData:(id)sender {
+    [self.mediaData removeAllObjects];
+    [self getNextMediaDataByMinMediaId:nil];
+}
+
+- (void)getNextMediaDataByMinMediaId:(NSString *)mediaId {
+    __weak typeof(self)weakSelf = self;
+    [Inst_service getMediaByUserId:self.user.userId
+                        minMediaId:mediaId
+                         onSuccess:^(NSArray *mediaArray) {
+                             [weakSelf.mediaData addObjectsFromArray:mediaArray];
+                             [weakSelf reloadCollectionView];
+                             [weakSelf.contentView stopAnimating];
+                             [weakSelf.refreshControl endRefreshing];
+                             pageLoading = NO;
+                         }
+                         onFailure:^(NSError *error) {
+                             [weakSelf.contentView stopAnimating];
+                             [weakSelf.refreshControl endRefreshing];
+                             [weakSelf showAlertWithTitle:@"Error"
+                                                  message:error.localizedDescription];
+                         }];
 }
 
 - (void)reloadCollectionView {
@@ -79,6 +116,15 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSURL *mediaUrl = [NSURL URLWithString:self.mediaData[indexPath.row].standardResolution];
     [mediaFocusController showImageFromURL:mediaUrl fromView:self.contentView inViewController:self];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger row = indexPath.row;
+    if (row == [self.mediaData count] - 1 && !pageLoading) {
+        pageLoading = YES;
+        NSString *mediaId = [self.mediaData lastObject].mediaId;
+        [self getNextMediaDataByMinMediaId:mediaId];
+    }
 }
 
 #pragma mark – UICollectionViewDelegateFlowLayout

@@ -144,20 +144,26 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="D9F-S9-ORI">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="D9F-S9-ORI" firstAttribute="centerX" secondItem="wwk-AI-Ral" secondAttribute="centerX" id="93P-m8-uTk"/>
+                            <constraint firstItem="D9F-S9-ORI" firstAttribute="centerY" secondItem="wwk-AI-Ral" secondAttribute="centerY" id="QZc-cI-mdO"/>
                             <constraint firstItem="ceY-4w-x6k" firstAttribute="leading" secondItem="wwk-AI-Ral" secondAttribute="leading" id="hUt-tM-nWU"/>
                             <constraint firstAttribute="trailing" secondItem="ceY-4w-x6k" secondAttribute="trailing" id="kxW-iS-ISQ"/>
                             <constraint firstItem="ceY-4w-x6k" firstAttribute="top" secondItem="fz4-jy-Apx" secondAttribute="bottom" id="oed-MC-9H0"/>
                             <constraint firstItem="H8V-3C-VyH" firstAttribute="top" secondItem="ceY-4w-x6k" secondAttribute="bottom" id="yB2-HG-yFs"/>
                         </constraints>
                         <connections>
+                            <outlet property="activityIndicator" destination="D9F-S9-ORI" id="gpL-9y-TeQ"/>
                             <outlet property="collectionView" destination="ceY-4w-x6k" id="6nK-Nq-1Ut"/>
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="contentView" destination="wwk-AI-Ral" id="cG0-mr-lgl"/>
+                        <outlet property="contentView" destination="wwk-AI-Ral" id="mM0-6o-aby"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KoM-0l-zOF" userLabel="First Responder" sceneMemberID="firstResponder"/>

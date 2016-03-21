@@ -8,12 +8,26 @@
 
 #import "MEUserMediaView.h"
 
+@interface MEUserMediaView ()
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@end
+
 @implementation MEUserMediaView
 
 #pragma mark - Setup
 
 - (void)setup {
     self.collectionView.backgroundColor = [MEStyle whiteColor];
+}
+
+#pragma mark - Public
+
+- (void)startAnimating {
+    [self.activityIndicator startAnimating];
+}
+
+- (void)stopAnimating {
+    [self.activityIndicator stopAnimating];
 }
 
 @end

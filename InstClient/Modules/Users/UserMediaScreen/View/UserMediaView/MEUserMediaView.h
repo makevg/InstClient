@@ -12,4 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
+- (void)startAnimating;
+- (void)stopAnimating;
+
 @end
