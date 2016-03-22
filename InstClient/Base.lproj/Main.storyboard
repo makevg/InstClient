@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Adl-sI-kPn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Adl-sI-kPn">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -30,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YVi-EK-OK8" id="1cX-SO-f4n">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="59"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xdb-j1-9ug">
@@ -152,18 +152,18 @@
                                 </cells>
                             </collectionView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="D9F-S9-ORI">
-                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                                <rect key="frame" x="290" y="355" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="D9F-S9-ORI" firstAttribute="centerX" secondItem="wwk-AI-Ral" secondAttribute="centerX" id="93P-m8-uTk"/>
                             <constraint firstItem="YWo-Ef-sYC" firstAttribute="top" secondItem="fz4-jy-Apx" secondAttribute="bottom" id="Mm6-ll-WTM"/>
-                            <constraint firstItem="D9F-S9-ORI" firstAttribute="centerY" secondItem="wwk-AI-Ral" secondAttribute="centerY" id="QZc-cI-mdO"/>
+                            <constraint firstItem="D9F-S9-ORI" firstAttribute="centerX" secondItem="ceY-4w-x6k" secondAttribute="centerX" id="O4d-MC-q6G"/>
                             <constraint firstAttribute="trailing" secondItem="YWo-Ef-sYC" secondAttribute="trailing" id="X6g-8e-haq"/>
                             <constraint firstItem="ceY-4w-x6k" firstAttribute="leading" secondItem="wwk-AI-Ral" secondAttribute="leading" id="hUt-tM-nWU"/>
                             <constraint firstAttribute="trailing" secondItem="ceY-4w-x6k" secondAttribute="trailing" id="kxW-iS-ISQ"/>
                             <constraint firstItem="YWo-Ef-sYC" firstAttribute="leading" secondItem="wwk-AI-Ral" secondAttribute="leading" id="q60-eQ-CPV"/>
+                            <constraint firstItem="D9F-S9-ORI" firstAttribute="centerY" secondItem="ceY-4w-x6k" secondAttribute="centerY" id="rrV-fS-Hbl"/>
                             <constraint firstItem="ceY-4w-x6k" firstAttribute="top" secondItem="YWo-Ef-sYC" secondAttribute="bottom" id="xD4-Hy-GHD"/>
                             <constraint firstItem="H8V-3C-VyH" firstAttribute="top" secondItem="ceY-4w-x6k" secondAttribute="bottom" id="yB2-HG-yFs"/>
                         </constraints>
