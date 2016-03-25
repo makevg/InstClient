@@ -184,23 +184,41 @@ NSString *const cScopes = @"basic+public_content";
     NSString *mediaUrl = [NSString stringWithFormat:@"https://api.instagram.com/v1/users/%@/media/recent/", userId];
     NSString *maxMediaId = mediaId ? mediaId : @"";
     
-    [self getInformationWithParams:@{@"access_token" : self.accessToken,
-                                     @"count" : @9,
-                                     @"max_id" : maxMediaId}
-                            method:mediaUrl
-                         onSuccess:^(NSDictionary *responseObject) {
-                             NSArray<MEMedia *> *mediaArray =
-                             [self mediaFromResponseArray:responseObject[@"data"]];
-                             
-                             if (success) {
-                                 success(mediaArray);
-                             }
-                         }
-                         onFailure:^(NSError *error) {
-                             if (failure) {
-                                 failure(error);
-                             }
-                         }];
+    NSDictionary *params = @{@"access_token" : self.accessToken,
+                             @"count" : @9,
+                             @"max_id" : maxMediaId};
+    
+//    [self getInformationWithParams:@{@"access_token" : self.accessToken,
+//                                     @"count" : @9,
+//                                     @"max_id" : maxMediaId}
+//                            method:mediaUrl
+//                         onSuccess:^(NSDictionary *responseObject) {
+//                             NSArray<MEMedia *> *mediaArray =
+//                             [self mediaFromResponseArray:responseObject[@"data"]];
+//                             
+//                             if (success) {
+//                                 success(mediaArray);
+//                             }
+//                         }
+//                         onFailure:^(NSError *error) {
+//                             if (failure) {
+//                                 failure(error);
+//                             }
+//                         }];
+    
+    [self makeGETRequestAsync:mediaUrl
+                       params:params
+                   completion:^(NSDictionary *responseObject) {
+                       NSArray<MEMedia *> *mediaArray = [self mediaFromResponseArray:responseObject[@"data"]];
+                       if (success) {
+                           success(mediaArray);
+                       }
+                   }
+                      failure:^(NSError *error) {
+                          if (failure) {
+                              failure(error);
+                          }
+                      }];
 }
 
 - (NSString *)errorDescriptionByError:(NSError *)error {

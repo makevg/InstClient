@@ -6,11 +6,11 @@
 //  Copyright © 2016 Maximychev Evgeny. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "MEBaseService.h"
 
 #define Inst_service [MEInstService sharedInstance]
 
-@interface MEInstService : NSObject
+@interface MEInstService : MEBaseService
 
 @property (nonatomic) NSString *accessToken;
 

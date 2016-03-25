@@ -32,6 +32,7 @@
 		14EAB04F1C9F4C3B000779AF /* MEUserMediaView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EAB04E1C9F4C3B000779AF /* MEUserMediaView.m */; };
 		14EAB0541C9F4CDE000779AF /* MEBaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EAB0531C9F4CDE000779AF /* MEBaseCollectionViewCell.m */; };
 		14EAB0571C9F4D39000779AF /* MEUserMediaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EAB0561C9F4D39000779AF /* MEUserMediaCell.m */; };
+		813066EC1CA5118900A8C737 /* MEBaseService.m in Sources */ = {isa = PBXBuildFile; fileRef = 813066EB1CA5118900A8C737 /* MEBaseService.m */; };
 		904665D2CC6B766DC8A8AEA1 /* libPods-InstClient.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B4E45B17189E5759AED52DD /* libPods-InstClient.a */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +104,8 @@
 		14EAB0551C9F4D39000779AF /* MEUserMediaCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEUserMediaCell.h; sourceTree = "<group>"; };
 		14EAB0561C9F4D39000779AF /* MEUserMediaCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEUserMediaCell.m; sourceTree = "<group>"; };
 		5B4E45B17189E5759AED52DD /* libPods-InstClient.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-InstClient.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		813066EA1CA5118900A8C737 /* MEBaseService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MEBaseService.h; sourceTree = "<group>"; };
+		813066EB1CA5118900A8C737 /* MEBaseService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MEBaseService.m; sourceTree = "<group>"; };
 		89BB178572176C24F2DCFE97 /* Pods-InstClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InstClient/Pods-InstClient.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -229,6 +232,7 @@
 		14611A931C9DAF13009586EC /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				813066E91CA5116000A8C737 /* BaseService */,
 				14611A9B1C9DB55D009586EC /* InstService */,
 			);
 			path = Services;
@@ -442,6 +446,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		813066E91CA5116000A8C737 /* BaseService */ = {
+			isa = PBXGroup;
+			children = (
+				813066EA1CA5118900A8C737 /* MEBaseService.h */,
+				813066EB1CA5118900A8C737 /* MEBaseService.m */,
+			);
+			path = BaseService;
+			sourceTree = "<group>";
+		};
 		816806E81CA0431C008B0E86 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -481,6 +494,7 @@
 				14611A521C9D9B93009586EC /* Frameworks */,
 				14611A531C9D9B93009586EC /* Resources */,
 				4211A5A034C4C8E3E3E95FA9 /* Copy Pods Resources */,
+				5F12639F1F401D6C83040D96 /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -614,6 +628,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstClient/Pods-InstClient-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5F12639F1F401D6C83040D96 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InstClient/Pods-InstClient-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C80C4F2DF21DD2D5C7B5FD69 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -642,6 +671,7 @@
 				14611AAB1C9DE775009586EC /* MEBaseTableViewCell.m in Sources */,
 				14611A5D1C9D9B93009586EC /* AppDelegate.m in Sources */,
 				14611AB51C9DE848009586EC /* MEBaseVC.m in Sources */,
+				813066EC1CA5118900A8C737 /* MEBaseService.m in Sources */,
 				14EAB04F1C9F4C3B000779AF /* MEUserMediaView.m in Sources */,
 				14611AC91C9DEA9D009586EC /* UIImageView+AsyncLoad.m in Sources */,
 				14611A5A1C9D9B93009586EC /* main.m in Sources */,
